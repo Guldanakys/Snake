@@ -16,7 +16,7 @@ namespace Cool
             // грузим уровень
             Game.LoadLevel(1);
             Game.Init();
-            // определяем размер поля
+            // определяем размер игрового поля
             Console.SetWindowSize(48, 48);
 
             while (Game.inGame)
