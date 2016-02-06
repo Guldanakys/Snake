@@ -27,7 +27,7 @@ namespace Primenum
         }
         static void Main(string[] args)
         {
-            // вытаскиваем числа 
+            // вытаскиваем числа
             for( int i = 0; i < args.Length; ++i )
             {
                 if (Prime(args[i]))
