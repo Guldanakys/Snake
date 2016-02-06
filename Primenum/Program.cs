@@ -32,11 +32,11 @@ namespace Primenum
             {
                 if (Prime(args[i]))
                 {
-                    Console.WriteLine(args[i] + " is prime");
+                    Console.WriteLine(args[i] + " is Prime");
                 }
                 else
                 {
-                    Console.WriteLine(args[i] + " is not prime");
+                    Console.WriteLine(args[i] + " is not Prime");
                 }
             }
 
