@@ -13,7 +13,7 @@ namespace Cool
         {
 
             Game.inGame = true;
-            // загружаем уровень
+            // загружаем уровень 1
             Game.LoadLevel(1);
             Game.Init();
             // определяем размер игрового поля
