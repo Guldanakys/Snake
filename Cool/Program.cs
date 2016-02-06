@@ -22,7 +22,7 @@ namespace Cool
             while (Game.inGame)
             {
                 Game.Redraw();
-                // обозначаем нажатие клавиш
+                //|| обозначаем нажатие клавиш
                 ConsoleKeyInfo pressedKey = Console.ReadKey();
 
                 switch (pressedKey.Key)
