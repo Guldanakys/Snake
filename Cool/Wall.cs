@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cool.Models
 {
+    [Serializable]
     public class Wall : Drawer
     {
         public Wall()

@@ -10,24 +10,30 @@ namespace Cool.Models
     public class Game
     {
         // определяем главные составные части игры
+        //public static int speed;
         public static int levelNum = 1;
         public static int foodEaten = 0;
         public static bool inGame;
         public static Snake snake = new Snake();
         public static Wall wall = new Wall();
         public static Food food = new Food();
+
         public static void Redraw()
         {
             // очищаем и рисуем объекты
-            Console.Clear();
+            //Console.Clear();
             snake.Draw();
             food.Draw();
-            wall.Draw();
+            //wall.Draw();
             // очки и уровни
-            Console.SetCursorPosition( 20, 28 );
-            Console.WriteLine( "SCORES : " + Game.foodEaten);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(20, 28);
+            Console.WriteLine("SCORES : " + Game.foodEaten);
             Console.SetCursorPosition(20, 30);
             Console.WriteLine("LEVEL - " + Game.levelNum);
+            Console.SetCursorPosition(20, 32);
+            Console.WriteLine("In Game: " + Program.TmCount / 10 + " s");
+            
         }
 
         public static void LoadLevel(int i)
@@ -35,8 +41,10 @@ namespace Cool.Models
             // выставляем поле
             FileStream fs = new FileStream(string.Format(@"C:\Users\home pc\Desktop\Программинг\LevelWall{0}.txt", i),
                 FileMode.Open, FileAccess.Read);
-
+            
             StreamReader reader = new StreamReader(fs);
+
+            
 
             string line;
             int row = -1;

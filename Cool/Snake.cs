@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cool.Models
 {
+    [Serializable]
     public class Snake : Drawer
+    
     {
         Point head = new Point();
         public void Eat() { }
@@ -19,7 +22,13 @@ namespace Cool.Models
         public void Move(int dx, int dy)
         {
 
-            for (int i = body.Count - 1; i > 0; --i)
+            int xcl, ycl;// стираем конец змейки
+            xcl = body[body.Count - 1].x;
+            ycl = body[body.Count - 1].y;
+            Console.SetCursorPosition(xcl, ycl);
+            Console.Write(" ");
+
+            for (int i = body.Count - 1; i > 0; --i)// движение змейки
             {
                 body[i].x = body[i - 1].x;
                 body[i].y = body[i - 1].y;
@@ -79,7 +88,9 @@ namespace Cool.Models
                     Game.food.body.Clear();
 
                     Game.LoadLevel((Game.foodEaten / 4) + 1);
-                    Game.Init();
+                    Game.Init();//задает начальные значения
+                    Game.wall.Draw();
+                    
                 }
             }
             
@@ -89,9 +100,6 @@ namespace Cool.Models
                 if (Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                 {
                     Console.Clear();
-                    Console.SetCursorPosition(35, 15);
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Game Over!");
                     Game.inGame = false;
                 }
             }
